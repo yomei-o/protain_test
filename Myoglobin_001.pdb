@@ -1,0 +1,158 @@
+ATOM      1  CA  MET A   1      -1.740  -1.556   1.675  1.00  4.00           C  
+ATOM      2  CA  VAL A   2      -2.188  -2.421   2.636  1.00  4.00           C  
+CONECT    2    1
+ATOM      3  CA  LEU A   3      -3.166  -3.087   1.950  1.00  4.00           C  
+CONECT    3    2
+ATOM      4  CA  LEU A   4      -2.247  -3.515   1.031  1.00  4.00           C  
+CONECT    4    3
+ATOM      5  CA  GLN A   5      -0.556  -5.100   4.329  1.00  4.00           C  
+CONECT    5    4
+ATOM      6  CA  LYS A   6      -3.439  -4.835   5.673  1.00  4.00           C  
+CONECT    6    5
+ATOM      7  CA  LEU A   7      -3.044  -3.188   1.449  1.00  4.00           C  
+CONECT    7    6
+ATOM      8  CA  THR A   8      -4.233  -6.005   0.253  1.00  4.00           C  
+CONECT    8    7
+ATOM      9  CA  GLN A   9      -1.504  -7.588   0.734  1.00  4.00           C  
+CONECT    9    8
+ATOM     10  CA  LEU A  10      -2.318  -5.183   1.820  1.00  4.00           C  
+CONECT   10    9
+ATOM     11  CA  HIS A  11      -4.399  -7.525   1.659  1.00  4.00           C  
+CONECT   11   10
+ATOM     12  CA  THR A  12      -5.863  -9.195   0.195  1.00  4.00           C  
+CONECT   12   11
+ATOM     13  CA  ALA A  13      -3.263  -6.877  -0.299  1.00  4.00           C  
+CONECT   13   12
+ATOM     14  CA  VAL A  14      -2.314  -7.800  -0.644  1.00  4.00           C  
+CONECT   14   13
+ATOM     15  CA  LEU A  15      -2.114  -8.539   0.490  1.00  4.00           C  
+CONECT   15   14
+ATOM     16  CA  ALA A  16      -2.819  -7.543   0.408  1.00  4.00           C  
+CONECT   16   15
+ATOM     17  CA  ALA A  17      -2.624  -7.755  -0.695  1.00  4.00           C  
+CONECT   17   16
+ATOM     18  CA  GLN A  18      -1.232 -15.158  -1.274  1.00  4.00           C  
+CONECT   18   17
+ATOM     19  CA  ASP A  19      -1.802 -12.611  -0.762  1.00  4.00           C  
+CONECT   19   18
+ATOM     20  CA  LEU A  20      -2.332  -6.648  -0.384  1.00  4.00           C  
+CONECT   20   19
+ATOM     21  CA  ALA A  21      -2.075  -5.308  -0.487  1.00  4.00           C  
+CONECT   21   20
+ATOM     22  CA  LYS A  22      -1.860  -5.764  -1.282  1.00  4.00           C  
+CONECT   22   21
+ATOM     23  CA  GLN A  23      -2.310  -2.604  -1.267  1.00  4.00           C  
+CONECT   23   22
+ATOM     24  CA  SER A  24      -3.911  -5.259  -0.509  1.00  4.00           C  
+CONECT   24   23
+ATOM     25  CA  ALA A  25      -3.145  -4.771  -0.800  1.00  4.00           C  
+CONECT   25   24
+ATOM     26  CA  ASP A  26      -2.410  -5.291  -3.136  1.00  4.00           C  
+CONECT   26   25
+ATOM     27  CA  VAL A  27      -1.384  -2.709  -1.073  1.00  4.00           C  
+CONECT   27   26
+ATOM     28  CA  LEU A  28      -1.500  -1.570  -0.324  1.00  4.00           C  
+CONECT   28   27
+ATOM     29  CA  ALA A  29      -2.112  -0.365  -0.533  1.00  4.00           C  
+CONECT   29   28
+ATOM     30  CA  ASP A  30      -2.287  -0.552  -1.699  1.00  4.00           C  
+CONECT   30   29
+ATOM     31  CA  ALA A  31      -2.304  -3.084  -0.580  1.00  4.00           C  
+CONECT   31   30
+ATOM     32  CA  LEU A  32      -2.112  -4.435  -0.665  1.00  4.00           C  
+CONECT   32   31
+ATOM     33  CA  LYS A  33      -1.592  -8.339  -1.359  1.00  4.00           C  
+CONECT   33   32
+ATOM     34  CA  LYS A  34      -2.224 -10.922  -1.316  1.00  4.00           C  
+CONECT   34   33
+ATOM     35  CA  MET A  35      -2.331  -8.413  -0.790  1.00  4.00           C  
+CONECT   35   34
+ATOM     36  CA  LEU A  36      -1.544  -8.073  -0.543  1.00  4.00           C  
+CONECT   36   35
+ATOM     37  CA  ALA A  37      -1.767  -9.093  -0.087  1.00  4.00           C  
+CONECT   37   36
+ATOM     38  CA  GLU A  38      -2.892 -20.561  -1.610  1.00  4.00           C  
+CONECT   38   37
+ATOM     39  CA  GLN A  39      -1.658 -22.597  -2.797  1.00  4.00           C  
+CONECT   39   38
+ATOM     40  CA  LEU A  40      -1.258 -11.678  -0.247  1.00  4.00           C  
+CONECT   40   39
+ATOM     41  CA  LEU A  41      -2.147 -12.274   0.147  1.00  4.00           C  
+CONECT   41   40
+ATOM     42  CA  GLY A  42      -1.731 -23.250   0.067  1.00  4.00           C  
+CONECT   42   41
+ATOM     43  CA  LEU A  43      -1.924 -10.116   0.566  1.00  4.00           C  
+CONECT   43   42
+ATOM     44  CA  GLN A  44      -2.616 -18.131   0.356  1.00  4.00           C  
+CONECT   44   43
+ATOM     45  CA  VAL A  45      -2.349  -7.922   0.125  1.00  4.00           C  
+CONECT   45   44
+ATOM     46  CA  LEU A  46      -2.518  -8.181  -0.004  1.00  4.00           C  
+CONECT   46   45
+ATOM     47  CA  LEU A  47      -2.434  -6.843   0.267  1.00  4.00           C  
+CONECT   47   46
+ATOM     48  CA  GLN A  48      -2.798  -7.789   0.014  1.00  4.00           C  
+CONECT   48   47
+ATOM     49  CA  LYS A  49      -3.335  -6.188  -0.444  1.00  4.00           C  
+CONECT   49   48
+ATOM     50  CA  LEU A  50      -2.498  -2.784   0.135  1.00  4.00           C  
+CONECT   50   49
+ATOM     51  CA  THR A  51      -2.539   0.137  -0.136  1.00  4.00           C  
+CONECT   51   50
+ATOM     52  CA  GLN A  52      -2.783   3.304   0.177  1.00  4.00           C  
+CONECT   52   51
+ATOM     53  CA  LEU A  53      -2.518   1.287   0.260  1.00  4.00           C  
+CONECT   53   52
+ATOM     54  CA  HIS A  54      -2.309   8.049  -0.179  1.00  4.00           C  
+CONECT   54   53
+ATOM     55  CA  THR A  55      -2.036  10.694  -0.263  1.00  4.00           C  
+CONECT   55   54
+ATOM     56  CA  ALA A  56      -1.885   4.477   0.229  1.00  4.00           C  
+CONECT   56   55
+ATOM     57  CA  VAL A  57      -1.902   5.610   0.355  1.00  4.00           C  
+CONECT   57   56
+ATOM     58  CA  LEU A  58      -2.003   6.745   0.322  1.00  4.00           C  
+CONECT   58   57
+ATOM     59  CA  ALA A  59      -1.962   7.882   0.244  1.00  4.00           C  
+CONECT   59   58
+ATOM     60  CA  ALA A  60      -1.904   9.019   0.290  1.00  4.00           C  
+CONECT   60   59
+ATOM     61  CA  GLN A  61      -2.156  26.597   0.210  1.00  4.00           C  
+CONECT   61   60
+ATOM     62  CA  ASP A  62      -2.392  23.948   0.224  1.00  4.00           C  
+CONECT   62   61
+ATOM     63  CA  LEU A  63      -2.036   7.889   0.211  1.00  4.00           C  
+CONECT   63   62
+ATOM     64  CA  ALA A  64      -1.885   6.760   0.256  1.00  4.00           C  
+CONECT   64   63
+ATOM     65  CA  LYS A  65      -2.211  16.050   0.446  1.00  4.00           C  
+CONECT   65   64
+ATOM     66  CA  GLN A  66      -2.668  13.451   0.106  1.00  4.00           C  
+CONECT   66   65
+ATOM     67  CA  SER A  67      -1.045  11.352  -0.080  1.00  4.00           C  
+CONECT   67   66
+ATOM     68  CA  ALA A  68      -1.523   2.835   1.028  1.00  4.00           C  
+CONECT   68   67
+ATOM     69  CA  ASP A  69       0.111   7.414   2.865  1.00  4.00           C  
+CONECT   69   68
+ATOM     70  CA  VAL A  70      -0.683   1.239   2.436  1.00  4.00           C  
+CONECT   70   69
+ATOM     71  CA  LEU A  71      -1.564   0.285   2.867  1.00  4.00           C  
+CONECT   71   70
+ATOM     72  CA  ALA A  72      -1.874  -0.495   1.786  1.00  4.00           C  
+CONECT   72   71
+ATOM     73  CA  ASP A  73       0.033   2.080   0.707  1.00  4.00           C  
+CONECT   73   72
+ATOM     74  CA  ALA A  74      -0.159  -0.428   1.443  1.00  4.00           C  
+CONECT   74   73
+ATOM     75  CA  LEU A  75      -1.138  -0.004   2.299  1.00  4.00           C  
+CONECT   75   74
+ATOM     76  CA  LYS A  76      -1.033   4.148   1.903  1.00  4.00           C  
+CONECT   76   75
+ATOM     77  CA  LYS A  77       0.938   5.762   1.140  1.00  4.00           C  
+CONECT   77   76
+ATOM     78  CA  MET A  78      -0.562   2.449   1.817  1.00  4.00           C  
+CONECT   78   77
+ATOM     79  CA  LEU A  79      -1.163   2.944   1.528  1.00  4.00           C  
+CONECT   79   78
+END
