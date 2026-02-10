@@ -1,5 +1,5 @@
 
-Universe OS Protein Folder
+## Universe OS Protein Folder
 "Protein folding is not a calculation. It is a cache retrieval from the Universe OS."
 
 🟢 Overview
@@ -14,10 +14,10 @@ Fibonacci Sphere Optimization: Amino acids are arranged via the Golden Angle, th
 Hydro-Zip Compression: Hydrophobic cores are not "pushed" by force; they are "indexed" to the core to save memory.🛠 Installation & UsageBash# Clone the repository
 
 
-# Compile the Universe OS engine
+## Compile the Universe OS engine
 g++ -o universe_folder protain_test.cpp
 
-# Run and input your RNA sequence
+## Run and input your RNA sequence
 ./universe_folder
 
 📊 Results: The Ubiquitin Proof
