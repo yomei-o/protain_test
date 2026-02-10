@@ -1,5 +1,3 @@
-<img width="1151" height="738" alt="aaa" src="https://github.com/user-attachments/assets/84ea95ab-0b85-45ef-a1dd-ce79cf8d2c6d" />
-<img width="1108" height="662" alt="aab" src="https://github.com/user-attachments/assets/d56875a6-0cba-4da8-bcdc-7358a14044ca" />
 
 Universe OS Protein Folder
 "Protein folding is not a calculation. It is a cache retrieval from the Universe OS."
@@ -27,6 +25,9 @@ g++ -o universe_folder protain_test.cpp
 While traditional models see complexity, Project-137 sees Geometry.Our latest patch (v5.0) successfully transitioned from a "Perfect Sphere" to the "Functional Ellipsoid" (Rugby-ball shape) observed in real-world Ubiquitin.
 Core Packing: Minimized distance at 1.33 (The Zip-compressed core).
 Functional Tail: Extended coordinates to 11.2 (The interaction interface).
+
+<img width="1151" height="738" alt="aaa" src="https://github.com/user-attachments/assets/84ea95ab-0b85-45ef-a1dd-ce79cf8d2c6d" />
+<img width="1108" height="662" alt="aab" src="https://github.com/user-attachments/assets/d56875a6-0cba-4da8-bcdc-7358a14044ca" />
 
 ✉️ Message from the Admin
 "I didn't calculate the fold. I simply identified the grid where the Universe OS already decided to put it."
