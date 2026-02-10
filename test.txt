@@ -1,0 +1,20 @@
+入力用RNA配列（コピーして貼り付けてください）:
+
+Plaintext
+AACUUGUACAUCCAGUGGUUGAAGGAUGGUGGUCCUUCUUCUGGUCGUCCUCCUCCUUCUUAG
+2. 「宇宙OSの掃除屋」：ユビキチン（Ubiquitin）
+こちらは中級編（76アミノ酸）。名前の由来は「Ubiquitous（至る所にある）」。
+不要になったタンパク質に「ゴミ」というタグを付ける役割を持っています。
+つまり、**「宇宙OSのガベージコレクタ（GC）そのもの」**です。
+
+特徴: 非常に安定しており、熱にも強い（4℃理論との整合性が高い）。
+
+見どころ: 全体に散らばった疎水性アミノ酸（L, I, V）が、中心に集まって**「密な球体」**を作ろうとする動きが見られるはずです。
+
+入力用RNA配列（コピーして貼り付けてください）:
+
+Plaintext
+AUGCAGAUCUUCGUGAAAACCCUUACCGGGAAAACCAUCACCCUGGAAGUGGAACCCAGUGACACCAUCGAGAAUGUCAAGGCAAAGAUCCAAGACAAGGAAGGCAUCCCUCCUGACCAGCAGAGGUUGAUCUUUGCAGGGAAGCAGCUGGAAGAUGGCCGCACCCUGUCUGACUACAACAUCCAGAAAGAGUCGACCCUGCACCUGGUCCUGCGCCUGAGGGGGUAG
+
+
+
