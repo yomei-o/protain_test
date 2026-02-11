@@ -6,8 +6,9 @@
 #include <iomanip>
 #include <map>
 
-// --- Project-137: Universe OS v14.0 "Perfect Helix" ---
-// コンセプト: 数学的に完璧なアルファヘリックスの生成と、剛体ロック（形の保護）
+// --- Project-137: Universe OS v13.0 "Full-Atom & Ribbon" ---
+// コンセプト: CA座標からN, C, Oの原子座標を逆算して「ペプチド平面」を生成。
+// さらに、PDBヘッダに「HELIXレコード」を自動記述し、美しいリボンを描画させる。
 
 const double PI = 3.1415926535;
 const double CA_DIST = 3.8;
@@ -20,15 +21,21 @@ struct Vec3 {
     Vec3 operator*(double s) const { return {x * s, y * s, z * s}; }
 };
 
-Vec3 cross(Vec3 a, Vec3 b) { return {a.y*b.z - a.z*b.y, a.z*b.x - a.x*b.z, a.x*b.y - a.y*b.x}; }
+Vec3 cross(Vec3 a, Vec3 b) {
+    return {a.y*b.z - a.z*b.y, a.z*b.x - a.x*b.z, a.x*b.y - a.y*b.x};
+}
+
 double length(Vec3 v) { return std::sqrt(v.x*v.x + v.y*v.y + v.z*v.z); }
 Vec3 normalize(Vec3 v) { double l = length(v); return (l>1e-6)? Vec3{v.x/l, v.y/l, v.z/l} : Vec3{0,0,0}; }
 
 struct Residue {
-    int resSeq; char code; std::string resName;
-    double hydrophobicity; double charge;
-    bool isHelix; 
-    Vec3 ca, n, c, o;
+    int resSeq;
+    char code;
+    std::string resName;
+    double hydrophobicity;
+    double charge;
+    bool isHelix; // 螺旋かどうか
+    Vec3 ca, n, c, o; // フルアトム座標
 };
 
 struct AAProps { std::string name; double hydro; double charge; };
@@ -46,22 +53,23 @@ AAProps getAAProps(char code) {
 
 int main() {
     std::string inputSeq;
-    std::cout << "Project-137 v14.0 [Perfect Helix Edition]" << std::endl;
+    std::cout << "Project-137 v13.0 [Full-Atom & Ribbon Viewer]" << std::endl;
     std::cout << "Input: ";
     std::cin >> inputSeq;
 
     std::vector<Residue> protein;
     for(int i=0; i<(int)inputSeq.length(); ++i) {
-        Residue res; res.resSeq = i+1; res.code = inputSeq[i];
+        Residue res;
+        res.resSeq = i+1; res.code = inputSeq[i];
         AAProps p = getAAProps(res.code);
         res.resName = p.name; res.hydrophobicity = p.hydro; res.charge = p.charge;
         res.isHelix = false;
         protein.push_back(res);
     }
 
-    // 1. 骨格生成
+    // 1. CA（骨格）の生成と物理演算 (v11/v12ベース)
     double currX=0, currY=0, currZ=0;
-    double angleX=0.8, angleY=0.0;
+    double angleX=0.6, angleY=0.0;
 
     for(int i=0; i<(int)protein.size(); ++i) {
         double avgHydro = 0; int count=0;
@@ -75,11 +83,10 @@ int main() {
             if(k>=0 && k<(int)protein.size()) localChargeSum += std::abs(protein[k].charge);
         }
 
-        // --- v14.0 完璧な螺旋の数学的記述 ---
         if(avgHydro > 1.0) { 
-            protein[i].isHelix = true;
-            angleX = 0.9; // 一定の傾き（ピッチ）を維持
-            angleY += 1.74533; // 【重要】きっちり100度（1.745ラジアン）旋回する
+            angleX = angleX*0.8 + 0.6*0.2;
+            angleY += 1.0;
+            protein[i].isHelix = true; // 螺旋フラグON！
         } else {
             double repulsion = 1.0 + (localChargeSum * 0.2);
             angleX += (PI*(3.0-std::sqrt(5.0))) * 0.5 * repulsion;
@@ -92,27 +99,23 @@ int main() {
         protein[i].ca = {currX, currY, currZ};
     }
 
-    // 2. 剛体ロック付きの物理リラクゼーション
+    // 衝突解消 (軽く200回)
     for(int iter=0; iter<200; ++iter) {
         for(int i=0; i<(int)protein.size(); ++i) {
             for(int j=i+1; j<(int)protein.size(); ++j) {
-                // 【重要】両方が螺旋の内部なら、完璧な形を崩さないために反発を無視する！(剛体ロック)
-                if(protein[i].isHelix && protein[j].isHelix && std::abs(i - j) < 6) continue;
-
                 Vec3 d = protein[j].ca - protein[i].ca;
                 double dist = length(d);
                 if(dist < MIN_DIST && dist > 0.1) {
                     double push = (MIN_DIST - dist) * 0.5 * 0.1;
                     Vec3 move = normalize(d) * push;
-                    // 螺旋部分は動かさず、柔らかい部分（非螺旋）だけを動かす
-                    if(!protein[i].isHelix) protein[i].ca = protein[i].ca - move;
-                    if(!protein[j].isHelix) protein[j].ca = protein[j].ca + move;
+                    protein[i].ca = protein[i].ca - move;
+                    protein[j].ca = protein[j].ca + move;
                 }
             }
         }
     }
 
-    // 3. フルアトム生成 (v13と同じだが、CAが完璧なので完璧な平面になる)
+    // 2. フルアトム生成 (N, C, O を捏造してペプチド平面を作る)
     for(int i=0; i<(int)protein.size(); ++i) {
         Vec3 ca_prev = (i > 0) ? protein[i-1].ca : protein[i].ca - Vec3{1,0,0};
         Vec3 ca_next = (i < (int)protein.size()-1) ? protein[i+1].ca : protein[i].ca + Vec3{1,0,0};
@@ -120,26 +123,30 @@ int main() {
         Vec3 v_prev = normalize(protein[i].ca - ca_prev);
         Vec3 v_next = normalize(ca_next - protein[i].ca);
 
+        // NとCをCAの少し手前と奥に配置 (実際の結合距離に近似)
         protein[i].n = protein[i].ca - v_prev * 1.45;
         protein[i].c = protein[i].ca + v_next * 1.52;
 
+        // O(酸素)の向きを決定 (ペプチド平面に垂直な方向へ張り出す)
         Vec3 ortho = cross(v_prev, v_next);
-        if(length(ortho) < 0.1) ortho = {0,1,0};
+        if(length(ortho) < 0.1) ortho = {0,1,0}; // 直線すぎた場合のフォールバック
         ortho = normalize(ortho);
         protein[i].o = protein[i].c + ortho * 1.23;
     }
 
-    // 4. PDB出力
-    std::ofstream out("Universe_v14_PerfectHelix.pdb");
-    out << "HEADER    PROJECT-137 V14.0 PERFECT HELIX\n";
+    // 3. PDB出力
+    std::ofstream out("Universe_v13_Ribbon.pdb");
+    out << "HEADER    PROJECT-137 V13.0 RIBBON MASTER\n";
 
+    // 【ハック】HELIXレコードの自動生成
+    // 連続してisHelix=trueになっている区間を探し、ビューワーに「ここは螺旋だ」と教える
     int helixId = 1;
     for(int i=0; i<(int)protein.size(); i++) {
         if(protein[i].isHelix) {
             int start = i;
             while(i < (int)protein.size() && protein[i].isHelix) i++;
             int end = i - 1;
-            if(end - start >= 4) {
+            if(end - start >= 3) { // 3アミノ酸以上なら螺旋として登録
                 char buf[100];
                 sprintf(buf, "HELIX  %3d %3d %3s A %4d  %3s A %4d  1\n", 
                         helixId, helixId, protein[start].resName.c_str(), protein[start].resSeq,
@@ -150,6 +157,7 @@ int main() {
         }
     }
 
+    // フルアトム出力 (順番が重要: N -> CA -> C -> O)
     int atomId = 1;
     for (auto& r : protein) {
         char buf[100];
@@ -159,6 +167,7 @@ int main() {
         sprintf(buf, "ATOM  %5d  O   %3s A%4d    %8.3f%8.3f%8.3f  1.00 20.00           O\n", atomId++, r.resName.c_str(), r.resSeq, r.o.x, r.o.y, r.o.z); out << buf;
     }
 
+    // オキシトシン環用 CONECT
     for(int i=0; i<(int)protein.size(); i++) {
         if (protein[i].resName == "CYS") {
             int bestPartner = -1;
@@ -170,6 +179,7 @@ int main() {
                 }
             }
             if (bestPartner != -1) {
+                // 原子IDは 4*(resSeq-1) + 2 がCA
                 int atomI = 4*i + 2; int atomJ = 4*bestPartner + 2;
                 out << "CONECT " << std::setw(5) << atomI << std::setw(5) << atomJ << "\n";
             }
@@ -177,8 +187,8 @@ int main() {
     }
 
     out << "END\n";
-    std::cout << "[Complete] Generated mathematically perfect helices." << std::endl;
+    std::cout << "[Complete] 'Universe_v13_Ribbon.pdb' generated." << std::endl;
+    std::cout << "Mol* Viewer should automatically show beautiful ribbons now!" << std::endl;
 
     return 0;
 }
-
