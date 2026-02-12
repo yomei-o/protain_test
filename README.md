@@ -30,7 +30,10 @@ Functional Tail: Extended coordinates to 11.2 (The interaction interface).
 "I didn't calculate the fold. I simply identified the grid where the Universe OS already decided to put it."
 
 Calmodulin
+
 <img width="855" height="585" alt="Calmodulin_01" src="https://github.com/user-attachments/assets/04fc5e66-4b04-4638-8bff-eab047589b7a" />
+
 Prepro-oxytocin
+
 <img width="793" height="652" alt="Prepro-oxytocin_01" src="https://github.com/user-attachments/assets/a8a2b408-c0a0-4209-95cb-54746d9c9bae" />
 
